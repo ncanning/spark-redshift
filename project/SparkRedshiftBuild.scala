@@ -38,7 +38,6 @@ object SparkRedshiftBuild extends Build {
 
   lazy val root = Project("spark-redshift", file("."))
     .configs(IntegrationTest)
-    .settings(net.virtualvoid.sbt.graph.Plugin.graphSettings: _*)
     .settings(Project.inConfig(IntegrationTest)(rawScalastyleSettings()): _*)
     .settings(Defaults.coreDefaultSettings: _*)
     .settings(Defaults.itSettings: _*)
