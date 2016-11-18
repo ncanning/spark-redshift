@@ -22,10 +22,7 @@ import scala.collection.mutable.ArrayBuffer
  * Wrapper class for representing the name of a Redshift table.
  */
 private[redshift] case class TableName(unescapedSchemaName: String, unescapedTableName: String) {
-  private def quote(str: String) = '"' + str.replace("\"", "\"\"") + '"'
-  def escapedSchemaName: String = quote(unescapedSchemaName)
-  def escapedTableName: String = quote(unescapedTableName)
-  override def toString: String = s"$escapedSchemaName.$escapedTableName"
+  override def toString: String = s"$unescapedSchemaName.$unescapedTableName"
 }
 
 private[redshift] object TableName {
